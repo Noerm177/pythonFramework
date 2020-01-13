@@ -1,11 +1,10 @@
-from selenium import webdriver
 from pages.home.login_page import LoginPage
 import pytest
 import unittest
 
 
 @pytest.mark.usefixtures("one_time-setup", "setUP")
-class TestLogin(unittest.TestCase):
+class LoginTest(unittest.TestCase):
 
     @pytest.fixture(autouse=True)
     def class_setup(self, one_time_setup):

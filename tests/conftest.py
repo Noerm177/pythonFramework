@@ -2,14 +2,14 @@ import pytest
 from selenium import webdriver
 
 
-@pytest.yield_fixture()
+@pytest.fixture()
 def setUP():
     print("Running method level setUp")
     yield
     print("Running method level tearDown")
 
 
-@pytest.yield_fixture(scope="class")
+@pytest.fixture(scope="class")
 def one_time_setup(request, browser):
     print("Running one time setUp")
     if browser == 'chrome':
