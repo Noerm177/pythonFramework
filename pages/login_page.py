@@ -36,10 +36,10 @@ class LoginPage(SeleniumDriver):
         time.sleep(2)
 
     def verify_login_successful(self):
-        result = self.is_element_present("flash success", locator_type="classname")
+        result = self.is_element_present("#flash", locator_type="css")
         return result
 
     def verify_login_failed(self):
 
-        result = self.is_element_present("flash error", locator_type="class")
+        result = self.is_element_present("flash error", locator_type="classname")
         return result
