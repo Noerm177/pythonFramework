@@ -20,10 +20,10 @@ class LoginPage(SeleniumDriver):
         self.element_click(self.link_login, locator_type="xpath")
 
     def enter_user(self, username):
-        self.send_keys(username, self.userNameXpath)
+        self.send_keys(username, self.userNameXpath, locator_type="xpath")
 
     def enter_password(self, password):
-        self.send_keys(password, self.passwordXpath)
+        self.send_keys(password, self.passwordXpath, locator_type="xpath")
 
     def click_login_btn(self):
         self.element_click(self.logInBTNXpath, locator_type="xpath")
@@ -36,11 +36,10 @@ class LoginPage(SeleniumDriver):
         time.sleep(2)
 
     def verify_login_successful(self):
-        result = self.is_element_present("flash success",
-                                         locator_type="class")
+        result = self.is_element_present("flash success", locator_type="classname")
         return result
 
     def verify_login_failed(self):
-        result = self.is_element_present("flash error",
-                                         locator_type="class")
+
+        result = self.is_element_present("flash error", locator_type="class")
         return result
