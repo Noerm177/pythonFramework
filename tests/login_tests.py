@@ -6,6 +6,8 @@ import unittest
 @pytest.mark.usefixtures("one_time_setup", "setUP")
 class LoginTest(unittest.TestCase):
 
+    correct_text = "Welcome to the Secure Area. When you are done click logout below."
+
     @pytest.fixture(autouse=True)
     def class_setup(self, one_time_setup):
         self.lp = LoginPage(self.driver)
@@ -13,7 +15,7 @@ class LoginTest(unittest.TestCase):
     @pytest.mark.run(order=1)
     def test_valid_login(self):
         self.lp.login("tomsmith", "SuperSecretPassword!")
-        result = self.lp.verify_login_successful()
+        result = self.lp.verify_login_successful_text(self.correct_text)
         assert result == True
 
     # @pytest.mark.run(order=2)

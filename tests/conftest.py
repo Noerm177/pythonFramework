@@ -1,5 +1,4 @@
 import pytest
-from selenium import webdriver
 from base.webdriverfactory import WebDriverFactory
 
 
@@ -7,7 +6,7 @@ from base.webdriverfactory import WebDriverFactory
 def setUP():
     print("Running method level setUp")
     yield
-    print("Running method level tearDown")
+    print("\nRunning method level tearDown")
 
 
 @pytest.yield_fixture(scope="class")
