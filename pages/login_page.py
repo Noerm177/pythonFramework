@@ -35,7 +35,8 @@ class LoginPage(SeleniumDriver):
         self.element_click(self.logInBTNXpath, locator_type="xpath")
 
     def introduce_text(self, text_in_element):
-        self.get_text(text_in_element, self.textXpath, locator_type="xpath")
+        result = self.get_text(text_in_element, self.textXpath, locator_type="xpath")
+        return result
 
     def login(self, username="", password=""):
         self.click_login_link()
@@ -44,7 +45,8 @@ class LoginPage(SeleniumDriver):
         self.click_login_btn()
 
     def verify_login_successful_text(self, text_to_verify=""):
-        self.introduce_text(text_to_verify)
+        result = self.introduce_text(text_to_verify)
+        return result
 
     def verify_login_failed(self):
         result = self.is_element_present("flash error", locator_type="classname")

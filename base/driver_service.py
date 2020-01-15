@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.common.exceptions import *
 import utilities.custom_logger as cl
+from selenium import webdriver
 import logging
 
 
@@ -27,7 +28,7 @@ class SeleniumDriver:
         elif locator_type == "classname":
             return By.CLASS_NAME
         elif locator_type == "linktext":
-            return By.LINK_TEXT
+            return By.PARTIAL_LINK_TEXT
         else:
             print("Locator type " + locator_type + " not correct/supported")
         return False
@@ -80,7 +81,9 @@ class SeleniumDriver:
             for i in text_contains:
                 elem_text_list.append(i)
 
-            if elem_text == elem_text_list:
+            elem_text_str = ''.join(map(str, elem_text_list))
+
+            if elem_text == elem_text_str:
                 print(elem_text)
                 self.log.info("get_text: " + locator +
                               " locatorType: " + locator_type)
